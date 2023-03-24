@@ -9,6 +9,8 @@ let locationContainer = document.getElementById("location")
 
 let condtionsContainer = document.getElementById("conditions")
 
+let forcastContainer = document.getElementById("forcastContainer")
+
 let conditionsText = document.getElementById("conditionsText")
 
 let icon = document.createElement("img")
@@ -68,6 +70,9 @@ async function getData(userInput) {
   getWeather(locationKey)
   getForcast(locationKey)
   getTime()
+  // toggle class of forcastContainer.
+
+  forcastContainer.classList.toggle("hide-forcast")
 }
 
 async function getWeather(loco) {
@@ -105,7 +110,7 @@ async function getForcast(locoTwo) {
   let oneHourIconImg = document.createElement("img")
   oneHourIconImg.src = iconMap[oneHourIcon]
   document.getElementById('hour1-icon').appendChild(oneHourIconImg)
-
+  document.getElementById('hour1-temprature'). innerHTML = `${onehourtemp}°c`
 
 
   let twohourtemp = forcastData[1].Temperature.Value
@@ -114,6 +119,7 @@ async function getForcast(locoTwo) {
   let twoHourIconImg = document.createElement("img")
   twoHourIconImg.src = iconMap[twoHourIcon]
   document.getElementById('hour2-icon').appendChild(twoHourIconImg)
+  document.getElementById('hour2-temprature'). innerHTML = `${twohourtemp}°c`
 
   let threehourtemp = forcastData[2].Temperature.Value
   let threeHourIcon = forcastData[2].WeatherIcon
@@ -121,6 +127,7 @@ async function getForcast(locoTwo) {
   let threeHourIconImg = document.createElement("img")
   threeHourIconImg.src = iconMap[threeHourIcon]
   document.getElementById('hour3-icon').appendChild(threeHourIconImg)
+  document.getElementById('hour3-temprature'). innerHTML = `${threehourtemp}°c`
 
   let fourhourtemp = forcastData[3].Temperature.Value
   let fourHourIcon = forcastData[3].WeatherIcon
@@ -128,6 +135,7 @@ async function getForcast(locoTwo) {
   let fourHourIconImg = document.createElement("img")
   fourHourIconImg.src = iconMap[fourHourIcon]
   document.getElementById('hour4-icon').appendChild(fourHourIconImg)
+  document.getElementById('hour4-temprature'). innerHTML = `${fourhourtemp}°c`
 
   let fivehourtemp = forcastData[4].Temperature.Value
   let fiveHourIcon = forcastData[4].WeatherIcon
@@ -135,6 +143,7 @@ async function getForcast(locoTwo) {
   let fiveHourIconImg = document.createElement("img")
   fiveHourIconImg.src = iconMap[fiveHourIcon]
   document.getElementById('hour5-icon').appendChild(fiveHourIconImg)
+  document.getElementById('hour5-temprature'). innerHTML = `${fivehourtemp}°c`
 
   let sixhourtemp = forcastData[5].Temperature.Value
   let sixHourIcon = forcastData[5].WeatherIcon
@@ -142,6 +151,7 @@ async function getForcast(locoTwo) {
   let sixHourIconImg = document.createElement("img")
   sixHourIconImg.src = iconMap[sixHourIcon]
   document.getElementById('hour6-icon').appendChild(sixHourIconImg)
+  document.getElementById('hour6-temprature'). innerHTML = `${sixhourtemp}°c`
 
 }
 
@@ -149,11 +159,11 @@ function getTime() {
   let time = new Date()
   let hours = time.getHours()
   document.getElementById('hour1-time').innerHTML = `Now`
-  document.getElementById('hour2-time').innerHTML = `${hours + 1}`
-  document.getElementById('hour3-time').innerHTML = `${hours + 2}`
-  document.getElementById('hour4-time').innerHTML = `${hours + 3}`
-  document.getElementById('hour5-time').innerHTML = `${hours + 4}`
-  document.getElementById('hour6-time').innerHTML = `${hours + 5}`
+  document.getElementById('hour2-time').innerHTML = `${(hours + 1) % 24}`
+  document.getElementById('hour3-time').innerHTML = `${(hours + 2) % 24}`
+  document.getElementById('hour4-time').innerHTML = `${(hours + 3) % 24}`
+  document.getElementById('hour5-time').innerHTML = `${(hours + 4) % 24}`
+  document.getElementById('hour6-time').innerHTML = `${(hours + 5) % 24}`
 }
 
 
