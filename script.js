@@ -158,6 +158,7 @@ async function getForcast(locoTwo) {
 function getTime() {
   let time = new Date()
   let hours = time.getHours()
+  
   document.getElementById('hour1-time').innerHTML = `Now`
   document.getElementById('hour2-time').innerHTML = `${(hours + 1) % 24}`
   document.getElementById('hour3-time').innerHTML = `${(hours + 2) % 24}`
