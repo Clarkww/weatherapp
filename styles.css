@@ -94,10 +94,15 @@ h3{
     padding: 10px;
 }
 
+.conditions {
+    justify-self: center;
+    width: 100%;
+}
+
 .conditions img {
-    margin-top: 20px;
-    width: 100px; 
-    height: 90px;
+    /* margin-top: 20px; */
+    width: 150px; 
+    height: 130px;
 }
 
 #conditionsText {
