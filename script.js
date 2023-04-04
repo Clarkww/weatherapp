@@ -63,7 +63,7 @@ const iconMap = {
 }
 
 async function getData(userInput) {
-  let url = `http://dataservice.accuweather.com/locations/v1/cities/search?apikey=${apiKey}&q=${userInput}`
+  let url = `https://dataservice.accuweather.com/locations/v1/cities/search?apikey=${apiKey}&q=${userInput}`
   let response = await fetch(url) 
   let data = await response.json()
   let locationKey = data[0].Key
@@ -76,7 +76,7 @@ async function getData(userInput) {
 }
 
 async function getWeather(loco) {
-  let weatherUrl = `http://dataservice.accuweather.com/currentconditions/v1/${loco}?apikey=${apiKey}`
+  let weatherUrl = `https://dataservice.accuweather.com/currentconditions/v1/${loco}?apikey=${apiKey}`
   let weatherResponse = await fetch(weatherUrl)
   let weatherData = await weatherResponse.json()
 
@@ -99,7 +99,7 @@ async function getWeather(loco) {
 }
 
 async function getForcast(locoTwo) {
-  let forcastUrl = `http://dataservice.accuweather.com/forecasts/v1/hourly/12hour/${locoTwo}?apikey=${apiKey}&metric=true`
+  let forcastUrl = `https://dataservice.accuweather.com/forecasts/v1/hourly/12hour/${locoTwo}?apikey=${apiKey}&metric=true`
   let forcastResponse = await fetch(forcastUrl)
   let forcastData = await forcastResponse.json()
   console.log(forcastData)
