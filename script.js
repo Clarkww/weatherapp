@@ -15,6 +15,10 @@ let conditionsText = document.getElementById("conditionsText")
 
 let icon = document.createElement("img")
 
+// add class to icon
+
+icon.classList.add("icon")
+
 const iconMap = {
   1: "./icons/new/clear-day.svg",
   2: "./icons/new/clear-day.svg",
