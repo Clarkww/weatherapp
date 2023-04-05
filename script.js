@@ -67,6 +67,7 @@ async function getData(userInput) {
   let response = await fetch(url) 
   let data = await response.json()
   let locationKey = data[0].Key
+  clearForcast()
   getWeather(locationKey)
   getForcast(locationKey)
   getTime()
@@ -174,6 +175,31 @@ button.addEventListener("click", function() {
   userlocation = document.getElementById("locationInput").value
   getData(userlocation)
 })
+
+// function to clear forcast container
+
+function clearForcast() {
+  document.getElementById('hour1-icon').innerHTML = ""
+  document.getElementById('hour1-temprature').innerHTML = ""
+
+  document.getElementById('hour2-icon').innerHTML = ""
+  document.getElementById('hour2-temprature').innerHTML = ""
+
+  document.getElementById('hour3-icon').innerHTML = ""
+  document.getElementById('hour3-temprature').innerHTML = ""
+
+  document.getElementById('hour4-icon').innerHTML = ""
+  document.getElementById('hour4-temprature').innerHTML = ""
+
+  document.getElementById('hour5-icon').innerHTML = ""
+  document.getElementById('hour5-temprature').innerHTML = ""
+
+  document.getElementById('hour6-icon').innerHTML = ""
+  document.getElementById('hour6-temprature').innerHTML = ""
+
+  
+
+}
 
 
 
